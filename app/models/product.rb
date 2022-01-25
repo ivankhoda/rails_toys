@@ -1,3 +1,3 @@
 class Product < ApplicationRecord
-  belongs_to :orders
+  belongs_to :order_id
 end

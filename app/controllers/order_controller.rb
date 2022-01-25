@@ -12,6 +12,7 @@ class OrderController < ApplicationController
 
   def create
     order = Order.new(order_params)
+
     if order.save
       render json: OrderSerializer.new(order).serializable_hash
     else
@@ -40,6 +41,6 @@ class OrderController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_id, :customer, [:products], :total_price)
+    params.require(:order).permit(:order_id, :customer, :total_price, products: [])
   end
 end
